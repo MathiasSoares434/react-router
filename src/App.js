@@ -4,15 +4,18 @@ import {
   Route,
 } from 'react-router-dom'
 import TemplateDefault from './template/Default'
+import Customers from './pages/Customers'
 import Home from './pages/Home'
-
 
 const App= () =>{
   return (
     <TemplateDefault>
       <Router>
         <Switch>
-          <Route path="/">
+        <Route path="/customers">
+            <Customers/>
+          </Route>
+        <Route path="/">
             <Home/>
           </Route>
         </Switch>
