@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Grid from '@mui/material/Grid';
 import CustomersCard from '../component/CustomerCard' 
+import { makeStyles } from '@mui/styles';
 
+const useStyle= makeStyles()
 
 const Customers= () =>{
+    const classes= useStyle()
     const [customers, setCustomers]= useState([])
-    console.log(customers)
+    
+
     
     useEffect(() =>{
         axios.get('https://reqres.in/api/users')
@@ -14,19 +19,34 @@ const Customers= () =>{
             setCustomers(data)
         })
     }, [])
+    //XS - EXTRA SMALL
+    //SM - SMALL
+    //MD - MEDIUM
+    //LG - LARGE
+    //XL - EXTRA LARGE
+    
     return (
     <>
     <h1>Customers</h1>
-    {
+
+    
+    <Grid container>
+        {
+        
         customers.map(item =>(
-            <CustomersCard
-            name={item.first_name}
-            lastname= {item.last_name}
-            email={item.email}
-            avatar={item.avatar}
-            />
-        ))
-    }
+            <Grid item xs={12} md={6} lg={3}>
+                <CustomersCard
+                    name={item.first_name}
+                    lastname= {item.last_name}
+                    email={item.email}
+                    avatar={item.avatar}
+                    className={classes.card}
+                    />
+            </Grid>
+                ))
+                
+        }
+    </Grid>
 
 
     </>
