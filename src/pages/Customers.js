@@ -26,10 +26,6 @@ const Customers= () =>{
     //XL - EXTRA LARGE
     
     return (
-    <>
-    <h1>Customers</h1>
-
-    
     <Grid container>
         {
         
@@ -47,9 +43,6 @@ const Customers= () =>{
                 
         }
     </Grid>
-
-
-    </>
     )
 }
 
